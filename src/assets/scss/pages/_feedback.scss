@@ -1,0 +1,47 @@
+@use "../abstracts/" as *;
+
+.feedback-page {
+  .feedback-form {
+    width: 48%;
+    min-width: 300px;
+    max-width: 365px;
+
+    @include sm {
+      min-width: 0px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding-bottom: getPadding(800);
+
+      label {
+        display: block;
+        padding-bottom: getPadding(100);
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        @include text(400);
+        @include radius;
+        @include text(300);
+        padding: getPadding();
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 10rem;
+        max-height: 20rem;
+      }
+    }
+
+    .btn {
+      width: 30%;
+      min-width: 90px;
+    }
+  }
+}
