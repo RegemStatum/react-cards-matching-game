@@ -55,10 +55,28 @@
   @include textShadow("color-1");
 }
 
+.accent-3 {
+  color: getColor("color-3");
+  @include textShadow("color-3");
+}
+
 .b {
   font-weight: 900;
 }
 
 .sb {
   font-weight: 600;
+}
+
+// colors
+.dark-red-text {
+  color: getMainColor("clr-red-dark");
+}
+
+.dark-yellow-text {
+  color: getMainColor("clr-yellow-dark");
+}
+
+.dark-green-text {
+  color: getMainColor("clr-green-dark");
 }

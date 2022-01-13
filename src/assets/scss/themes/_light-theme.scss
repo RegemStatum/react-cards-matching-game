@@ -55,8 +55,25 @@
     background-color: getLightThemeColor("color-1");
 
     .change-theme-btn {
+      color: getLightThemeColor("bg-color");
       &:hover {
         color: getLightThemeColor("color-2");
+      }
+    }
+  }
+
+  .login-page {
+    h2 {
+      text-shadow: none;
+    }
+
+    .user-info {
+      h4 span {
+        color: getLightThemeColor("text-color");
+      }
+
+      h5 {
+        color: getLightThemeColor("color-1");
       }
     }
   }

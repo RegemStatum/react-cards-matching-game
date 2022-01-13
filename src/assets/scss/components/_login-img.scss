@@ -1,0 +1,7 @@
+@use "../abstracts/" as *;
+
+.login-img {
+  width: 60px;
+  height: 60px;
+  @include radius;
+}

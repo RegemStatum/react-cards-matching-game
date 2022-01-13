@@ -1,6 +1,7 @@
 import React from "react";
 // react router
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 // header & footer
 import { Header, Footer } from "./components";
 import { AppProvider } from "./context/app_context";
