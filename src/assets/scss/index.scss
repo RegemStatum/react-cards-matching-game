@@ -37,42 +37,42 @@ body {
     color: getColor();
     text-decoration: none;
 
-    &:hover {
-      text-decoration: underline;
-      text-underline-offset: 0.05rem;
-    }
+    // &:hover {
+    //   text-decoration: underline;
+    //   text-underline-offset: 0.05rem;
+    // }
   }
 
   h1 {
-    font-size: getFontSize(1100);
+    @include text(1100);
     color: getColor("heading-1-color");
     font-weight: 900;
     text-transform: capitalize;
   }
 
   h2 {
-    font-size: getFontSize(900);
+    @include text(1000);
     color: getColor("heading-2-color");
     font-weight: 900;
     text-transform: capitalize;
   }
 
   h3 {
-    font-size: getFontSize(800);
+    @include text(800);
     color: getColor("heading-3-color");
     font-weight: 900;
     text-transform: capitalize;
   }
 
   h4 {
-    font-size: getFontSize(700);
+    @include text(700);
     color: getColor("heading-4-color");
     font-weight: 900;
     text-transform: capitalize;
   }
 
   h5 {
-    font-size: getFontSize(600);
+    @include text(600);
     color: getColor("heading-5-color");
     font-weight: 900;
     text-transform: capitalize;

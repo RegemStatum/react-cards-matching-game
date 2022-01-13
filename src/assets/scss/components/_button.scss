@@ -11,7 +11,7 @@
   text-transform: uppercase;
   color: getColor("color-1");
   cursor: pointer;
-  @include transition;
+  @include transition(box-shadow);
   @include radius;
 
   &:hover {

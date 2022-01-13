@@ -18,17 +18,18 @@ $font-sizes: (
 );
 
 // line heights
-$base-line-height: 1rem;
+$base-line-height-rem: 1rem;
+$base-line-height: 1;
 $line-heights: (
-  100: $base-line-height * 1,
-  200: $base-line-height * 1,
-  300: $base-line-height * 1.25,
-  400: $base-line-height * 1.5,
-  500: $base-line-height * 1.75,
-  600: $base-line-height * 1.75,
-  700: $base-line-height * 2,
-  800: $base-line-height * 2.25,
-  900: $base-line-height * 2.5,
+  100: $base-line-height-rem * 1,
+  200: $base-line-height-rem * 1,
+  300: $base-line-height-rem * 1.25,
+  400: $base-line-height-rem * 1.5,
+  500: $base-line-height-rem * 1.75,
+  600: $base-line-height-rem * 1.75,
+  700: $base-line-height-rem * 2,
+  800: $base-line-height-rem * 2.25,
+  900: $base-line-height-rem * 2.5,
   1000: $base-line-height * 1,
   1100: $base-line-height * 1,
   1200: $base-line-height * 1,

@@ -22,6 +22,9 @@
   a {
     color: getLightThemeColor("heading-1-color");
   }
+  p {
+    color: getLightThemeColor("text-color");
+  }
 
   .btn {
     border: 2px solid getLightThemeColor("color-1");

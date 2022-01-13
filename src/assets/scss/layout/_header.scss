@@ -1,1 +1,13 @@
 @use "../abstracts" as *;
+
+.header {
+  padding: getPadding(1000) 0;
+  .logo {
+    @include text(1200);
+    gap: getMargin();
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

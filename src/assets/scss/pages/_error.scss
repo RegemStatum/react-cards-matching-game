@@ -1,0 +1,8 @@
+@use "../abstracts/" as *;
+
+.error-page {
+  .btn {
+    margin: getMargin(1000) auto;
+    @include hugeBoxShadow;
+  }
+}

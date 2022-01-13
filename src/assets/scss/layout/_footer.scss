@@ -1,1 +1,26 @@
 @use "../abstracts" as *;
+
+.footer {
+  padding: getPadding(1000) 0;
+
+  .row {
+    p {
+      margin-right: getMargin(300);
+    }
+  }
+
+  p {
+    padding: getPadding(100) 0;
+  }
+
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: getMargin(700);
+
+    .copy {
+      padding-top: getPadding(300);
+    }
+  }
+}
