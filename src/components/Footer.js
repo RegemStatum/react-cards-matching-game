@@ -6,7 +6,11 @@ const Footer = () => {
       <div>
         <div className="row al-c jus-c">
           <p className="b">Made by </p>
-          <a href="https://github.com/RegemStatum">
+          <a
+            href="https://github.com/RegemStatum"
+            target="_blank"
+            rel="noreferrer"
+          >
             <h4 className="accent text-sh">Al_Kon</h4>
           </a>
         </div>

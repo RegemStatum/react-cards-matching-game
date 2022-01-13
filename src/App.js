@@ -3,19 +3,24 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // header & footer
 import { Header, Footer } from "./components";
+import { AppProvider } from "./context/app_context";
 // pages
-import { Home, Error } from "./pages";
+import { Home, Error, Feedback, Login } from "./pages";
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="*" element={<Error />}></Route>
-      </Routes>
-      <Footer />
-    </Router>
+    <AppProvider>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/feedback" element={<Feedback />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="*" element={<Error />}></Route>
+        </Routes>
+        <Footer />
+      </Router>
+    </AppProvider>
   );
 }
 

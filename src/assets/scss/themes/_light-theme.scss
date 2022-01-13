@@ -34,4 +34,30 @@
       @include boxShadow(getLightThemeColor("color-1"));
     }
   }
+
+  .accent {
+    color: getLightThemeColor("color-1");
+    text-shadow: none;
+  }
+
+  // navigation
+  .sidebar {
+    background-color: getLightThemeColor("heading-color-1");
+    border-color: getLightThemeColor("color-2");
+    .nav {
+      a {
+        color: getLightThemeColor("color-2");
+      }
+    }
+  }
+
+  .change-theme-btns {
+    background-color: getLightThemeColor("color-1");
+
+    .change-theme-btn {
+      &:hover {
+        color: getLightThemeColor("color-2");
+      }
+    }
+  }
 }

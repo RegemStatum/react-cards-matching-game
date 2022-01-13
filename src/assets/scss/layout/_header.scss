@@ -10,4 +10,29 @@
       cursor: pointer;
     }
   }
+
+  .header-nav {
+    margin-left: auto;
+    margin-right: getMargin(800);
+  }
+
+  .nav {
+    display: none;
+    width: 0%;
+    @include transition;
+
+    @include md {
+      display: flex;
+      width: 100%;
+    }
+  }
+
+  .mob-menu {
+    @include text(1000);
+    cursor: pointer;
+
+    @include md {
+      display: none;
+    }
+  }
 }

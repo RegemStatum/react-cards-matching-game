@@ -28,17 +28,17 @@ $color-palette-1: (
 
 // light-theme
 $color-palette-2: (
-  color-1: #0c0032,
-  color-2: #190061,
-  color-3: #240090,
-  color-4: #3500d3,
-  color-5: #282828,
-  bg-color: #fff,
-  heading-1-color: #222,
-  heading-2-color: #222,
-  heading-3-color: #222,
-  heading-4-color: #222,
-  heading-5-color: #222,
+  color-1: #6200ee,
+  color-2: #03dac5,
+  color-3: #3700b3,
+  color-4: #bb86fc,
+  color-5: #b00020,
+  bg-color: #f2e7fe,
+  heading-1-color: #0b0c10,
+  heading-2-color: #0b0c10,
+  heading-3-color: #0b0c10,
+  heading-4-color: #0b0c10,
+  heading-5-color: #0b0c10,
   text-color: #222,
 );
 
@@ -85,4 +85,19 @@ $color-palette-5: (
   heading-4-color: #fff,
   heading-5-color: #fff,
   text-color: #fff,
+);
+
+$color-palette-6: (
+  color-1: #0c0032,
+  color-2: #190061,
+  color-3: #240090,
+  color-4: #3500d3,
+  color-5: #282828,
+  bg-color: rgb(196, 181, 181),
+  heading-1-color: #0b0c10,
+  heading-2-color: #0b0c10,
+  heading-3-color: #0b0c10,
+  heading-4-color: #0b0c10,
+  heading-5-color: #0b0c10,
+  text-color: #222,
 );

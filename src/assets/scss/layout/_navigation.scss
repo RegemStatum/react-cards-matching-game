@@ -1,0 +1,16 @@
+@use "../abstracts/" as *;
+
+.nav {
+  a {
+    @include text(600);
+    margin-right: getMargin(700);
+  }
+}
+
+// // navigation in header
+// .header .nav {
+// }
+
+// // navigation in sidebar
+// .sidebar .nav {
+// }

@@ -13,7 +13,7 @@
 
 // light theme
 @function getLightThemeColor($color: "text-color") {
-  @return map-get($color-palette-4, $color);
+  @return map-get($color-palette-2, $color);
 }
 
 // typography

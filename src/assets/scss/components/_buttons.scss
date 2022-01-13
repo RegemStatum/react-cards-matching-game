@@ -1,0 +1,45 @@
+@use "../abstracts" as *;
+@use "../base/fonts" as *;
+
+.btn {
+  display: block;
+  padding: getPadding(500) getPadding(800);
+  border: 2px solid getColor("color-1");
+  background-color: transparent;
+  font-size: getFontSize(300);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: getColor("color-1");
+  cursor: pointer;
+  @include transition(box-shadow);
+  @include radius;
+
+  &:hover {
+    @include boxShadow;
+  }
+}
+
+.btn-close {
+  display: block;
+  font-size: getFontSize(900);
+  background-color: getMainColor("clr-red-dark");
+  color: getColor("bg-color");
+  cursor: pointer;
+  @include radius;
+}
+
+.change-theme-btns {
+  gap: getMargin();
+  background-color: getColor("color-1");
+  padding: getPadding(500);
+  @include radius(500);
+
+  .change-theme-btn {
+    cursor: pointer;
+    @include transition;
+
+    &:hover {
+      color: getColor("color-3");
+    }
+  }
+}
