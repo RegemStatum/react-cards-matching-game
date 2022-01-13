@@ -1,0 +1,91 @@
+// font sizes
+$base-font-size: 1rem;
+$font-sizes: (
+  100: $base-font-size * 0.5,
+  200: $base-font-size * 0.75,
+  300: $base-font-size * 0.875,
+  400: $base-font-size * 1,
+  500: $base-font-size * 1.125,
+  600: $base-font-size * 1.25,
+  700: $base-font-size * 1.5,
+  800: $base-font-size * 1.875,
+  900: $base-font-size * 2.25,
+  1000: $base-font-size * 3,
+  1100: $base-font-size * 3.75,
+  1200: $base-font-size * 4.5,
+  1300: $base-font-size * 6,
+  1400: $base-font-size * 8,
+);
+
+// line heights
+$base-line-height: 1rem;
+$line-heights: (
+  100: $base-line-height * 1,
+  200: $base-line-height * 1,
+  300: $base-line-height * 1.25,
+  400: $base-line-height * 1.5,
+  500: $base-line-height * 1.75,
+  600: $base-line-height * 1.75,
+  700: $base-line-height * 2,
+  800: $base-line-height * 2.25,
+  900: $base-line-height * 2.5,
+  1000: $base-line-height * 1,
+  1100: $base-line-height * 1,
+  1200: $base-line-height * 1,
+  1300: $base-line-height * 1,
+  1400: $base-line-height * 1,
+);
+
+// padding + margin
+$base-intendation: 1rem;
+$intendations: (
+  0: $base-intendation * 0,
+  100: $base-intendation * 0.125,
+  200: $base-intendation * 0.25,
+  300: $base-intendation * 0.375,
+  400: $base-intendation * 0.5,
+  500: $base-intendation * 0.625,
+  600: $base-intendation * 0.75,
+  700: $base-intendation * 0.875,
+  800: $base-intendation * 1,
+  900: $base-intendation * 1.25,
+  1000: $base-intendation * 1.5,
+  1100: $base-intendation * 1.75,
+  1200: $base-intendation * 2,
+  1300: $base-intendation * 2.25,
+  1400: $base-intendation * 2.5,
+  1500: $base-intendation * 2.75,
+  1600: $base-intendation * 3,
+  1700: $base-intendation * 3.5,
+  1800: $base-intendation * 4,
+  1900: $base-intendation * 5,
+  2000: $base-intendation * 6,
+  2100: $base-intendation * 8,
+  2200: $base-intendation * 9,
+  2300: $base-intendation * 10,
+  2400: $base-intendation * 11,
+  2500: $base-intendation * 12,
+  2600: $base-intendation * 13,
+  2700: $base-intendation * 14,
+  2800: $base-intendation * 15,
+  2900: $base-intendation * 16,
+  3000: $base-intendation * 17,
+  3100: $base-intendation * 18,
+  3200: $base-intendation * 19,
+  3300: $base-intendation * 20,
+  3400: $base-intendation * 24,
+);
+
+// border radius
+$base-border-radius: 1rem;
+$border-radiuses: (
+  0: $base-border-radius * 0,
+  300: $base-border-radius * 0.125,
+  400: $base-border-radius * 0.25,
+  500: $base-border-radius * 0.375,
+  600: $base-border-radius * 0.5,
+  700: $base-border-radius * 0.75,
+  800: $base-border-radius * 1,
+  900: $base-border-radius * 1.5,
+  1000: $base-border-radius * 200,
+);

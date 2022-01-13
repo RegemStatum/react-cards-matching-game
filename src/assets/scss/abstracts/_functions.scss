@@ -1,0 +1,38 @@
+@use "./colors" as *;
+@use "../base/typography" as *;
+
+// colors
+@function getMainColor($color: "clr-red-dark") {
+  @return map-get($main-colors-palette, $color);
+}
+
+// dark theme (by default)
+@function getColor($color: "text-color") {
+  @return map-get($color-palette-1, $color);
+}
+
+// light theme
+@function getLightThemeColor($color: "text-color") {
+  @return map-get($color-palette-2, $color);
+}
+
+// typography
+@function getFontSize($size: 400) {
+  @return map-get($font-sizes, $size);
+}
+
+@function getLineHeight($line-height: 400) {
+  @return map-get($line-heights, $line-height);
+}
+
+@function getPadding($padding: 400) {
+  @return map-get($intendations, $padding);
+}
+
+@function getMargin($margin: 400) {
+  @return map-get($intendations, $margin);
+}
+
+@function getBorderRadius($border-radius: 400) {
+  @return map-get($border-radiuses, $border-radius);
+}

@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="container home-page">
+      <h1>Hello its my heading 1</h1>
+      <h2>Hello its my heading 2</h2>
+      <h3>Hello its my heading 3</h3>
+      <h4>Hello its my heading 4</h4>
+      <h5>Hello its my heading 5</h5>
+      <p>plain text</p>
+      <a href="https://tailwindcss.com/docs/font-size#setting-the-font-size">
+        here is my link
+      </a>
+      <button className="btn">my button</button>
+    </main>
   );
 }
 

@@ -1,0 +1,79 @@
+@use "./functions" as *;
+
+// getText
+@mixin text($value: 400) {
+  font-size: getFontSize($value);
+  line-height: getLineHeight($value);
+}
+
+// styling
+@mixin radius($value: 400) {
+  border-radius: getBorderRadius($value);
+}
+
+@mixin transition($property: all, $time: 0.3s) {
+  transition: $property $time linear;
+}
+
+@mixin easeInOutTransition($property: all, $time: 0.3s) {
+  transition: $property $time ease-in-out;
+}
+
+@mixin textShadow($color: getColor("text-color")) {
+  text-shadow: $color 0 0 7px;
+}
+
+@mixin boxShadow($color: getColor("color-1")) {
+  box-shadow: $color 0 0 7px;
+}
+
+// flex row
+@mixin row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+@mixin pageMinHeight($headerHeight: 0px, $footerHeight: 0px) {
+  min-height: calc(100vh - $headerHeight - $footerHeight);
+}
+
+@mixin posAbsolute() {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@mixin sectionPadding() {
+  padding: getPadding(600) 0;
+}
+
+@mixin headingUnderscore() {
+  @include posAbsolute;
+  top: initial;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  width: 3.2rem;
+  height: 0.15rem;
+  opacity: 0.5;
+  background-color: getColor("text-color");
+}
+
+@mixin backgroundImage($path: "") {
+  background-image: url($path);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+//##################
+// NOT SURE TO USE
+//##################
+@mixin ref($font-size: 400, $color: "first-color") {
+  font-size: getFontSize($font-size);
+  font-weight: 600;
+  color: getColor($color);
+  text-decoration: none;
+  text-transform: uppercase;
+}

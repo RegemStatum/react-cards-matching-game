@@ -1,0 +1,88 @@
+$main-colors-palette: (
+  clr-red-dark: hsl(360, 67%, 44%),
+  clr-red-light: hsl(360, 71%, 66%),
+  clr-green-dark: hsl(125, 67%, 44%),
+  clr-green-light: hsl(125, 71%, 66%),
+  clr-yellow-dark: hsl(56, 100%, 57%),
+  clr-yellow-light: hsl(56, 71%, 66%),
+  light-shadow: rgba(0, 0, 0, 0.1),
+  dark-shadow: rgba(0, 0, 0, 0.2),
+  clr-black: #222,
+);
+
+// dark-theme
+$color-palette-1: (
+  color-1: #242582,
+  color-2: #553d67,
+  color-3: #f64c72,
+  color-4: #99738e,
+  color-5: #2f2fa2,
+  bg-color: #0b0c10,
+  heading-1-color: #fff,
+  heading-2-color: #fff,
+  heading-3-color: #fff,
+  heading-4-color: #fff,
+  heading-5-color: #fff,
+  text-color: #fff,
+);
+
+// light-theme
+$color-palette-2: (
+  color-1: #0c0032,
+  color-2: #190061,
+  color-3: #240090,
+  color-4: #3500d3,
+  color-5: #282828,
+  bg-color: #fff,
+  heading-1-color: #222,
+  heading-2-color: #222,
+  heading-3-color: #222,
+  heading-4-color: #222,
+  heading-5-color: #222,
+  text-color: #222,
+);
+
+$color-palette-3: (
+  color-1: #950740,
+  color-2: #950740,
+  color-3: #6f2232,
+  color-4: #4e4e50,
+  color-5: #1a1a1d,
+  bg-color: #1a1a1d,
+  heading-1-color: #fff,
+  heading-2-color: #fff,
+  heading-3-color: #fff,
+  heading-4-color: #fff,
+  heading-5-color: #fff,
+  text-color: #fff,
+);
+
+$color-palette-4: (
+  color-1: #66fcf1,
+  color-2: #45a29e,
+  color-3: #c5c6c7,
+  color-4: #1f2833,
+  color-5: #0b0c10,
+  bg-color: #0b0c10,
+  heading-1-color: #fff,
+  heading-2-color: #fff,
+  heading-3-color: #fff,
+  heading-4-color: #fff,
+  heading-5-color: #fff,
+  text-color: #fff,
+);
+
+$color-palette-5: (
+  color-1: #d83f87,
+  color-2: #44318d,
+  color-3: #8265a7,
+  color-4: #a4b3b6,
+  color-5: #2a1b3d,
+  bg-color: #222,
+  heading-1-color: #fff,
+  heading-2-color: #fff,
+  heading-3-color: #fff,
+  heading-4-color: #fff,
+  heading-5-color: #fff,
+  text-color: #fff,
+);

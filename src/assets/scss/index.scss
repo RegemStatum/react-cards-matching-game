@@ -1,0 +1,80 @@
+@use "./abstracts" as *;
+@use "./base" as *;
+@use "./components" as *;
+@use "./layout" as *;
+@use "./pages" as *;
+@use "./themes" as *;
+// @use "./vendors/" as *;
+
+//GLOBAL_STYLES
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: getColor("bg-color");
+  color: getColor("text-color");
+
+  .container {
+    width: 95%;
+    margin: 0 auto;
+
+    @include sm {
+      width: 93%;
+    }
+
+    @include lg {
+      max-width: 1400px;
+      width: 90%;
+    }
+  }
+
+  p {
+    font-size: getFontSize(400);
+    font-weight: 300;
+    line-height: 24px;
+  }
+
+  a {
+    font-size: getFontSize(400);
+    color: getColor();
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.05rem;
+    }
+  }
+
+  h1 {
+    font-size: getFontSize(1100);
+    color: getColor("heading-1-color");
+    font-weight: 900;
+    text-transform: capitalize;
+  }
+
+  h2 {
+    font-size: getFontSize(900);
+    color: getColor("heading-2-color");
+    font-weight: 900;
+    text-transform: capitalize;
+  }
+
+  h3 {
+    font-size: getFontSize(800);
+    color: getColor("heading-3-color");
+    font-weight: 900;
+    text-transform: capitalize;
+  }
+
+  h4 {
+    font-size: getFontSize(700);
+    color: getColor("heading-4-color");
+    font-weight: 900;
+    text-transform: capitalize;
+  }
+
+  h5 {
+    font-size: getFontSize(600);
+    color: getColor("heading-5-color");
+    font-weight: 900;
+    text-transform: capitalize;
+  }
+}
