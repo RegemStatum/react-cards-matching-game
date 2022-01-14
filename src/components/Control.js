@@ -3,12 +3,21 @@ import { IoIosArrowDown } from "react-icons/io";
 import { useAppContext } from "../context/app_context";
 import { SET_CARDS_AMOUNT, SET_MODE } from "../actions";
 
+const getStorageSize = () => {
+  let size = "2x2";
+  if (localStorage.getItem("cmg-game")) {
+    let obj = JSON.parse(localStorage.getItem("cmg-game"));
+    size = obj.size;
+  }
+  return size;
+};
+
 const Control = () => {
-  const { dispatch } = useAppContext();
+  const { dispatch, getLocalStorage, getStorageHardMode } = useAppContext();
   const [isSizeOpen, setIsSizeOpen] = useState(false);
   const [isModeOpen, setIsModeOpen] = useState(false);
-  const [isHardMode, setIsHardMode] = useState(true);
-  const [currentSize, setCurrentSize] = useState("2x2");
+  const [isHardMode, setIsHardMode] = useState(getStorageHardMode());
+  const [currentSize, setCurrentSize] = useState(getStorageSize());
 
   const size2 = useRef(null);
   const size3 = useRef(null);
@@ -24,16 +33,28 @@ const Control = () => {
     if (id === 2) {
       size2.current.classList.add("chosen");
       setCurrentSize("2x2");
+      localStorage.setItem(
+        "cmg-game",
+        JSON.stringify({ ...getLocalStorage(), size: "2x2" })
+      );
       size = 4;
     }
     if (id === 3) {
       size3.current.classList.add("chosen");
-      setCurrentSize("2x4");
+      setCurrentSize("4x2");
+      localStorage.setItem(
+        "cmg-game",
+        JSON.stringify({ ...getLocalStorage(), size: "4x2" })
+      );
       size = 8;
     }
     if (id === 4) {
       size4.current.classList.add("chosen");
       setCurrentSize("4x4");
+      localStorage.setItem(
+        "cmg-game",
+        JSON.stringify({ ...getLocalStorage(), size: "4x4" })
+      );
       size = 16;
     }
     dispatch({ type: SET_CARDS_AMOUNT, payload: size });
@@ -72,7 +93,7 @@ const Control = () => {
               chooseSize(3);
             }}
           >
-            <p>2x4</p>
+            <p>4x2</p>
           </div>
           <div
             className="control-size-item size-4"
@@ -105,6 +126,10 @@ const Control = () => {
             }`}
             onClick={() => {
               setIsHardMode(false);
+              localStorage.setItem(
+                "cmg-game",
+                JSON.stringify({ ...getLocalStorage(), hardMode: false })
+              );
               dispatch({ type: SET_MODE, payload: "easy" });
               setIsModeOpen(!isModeOpen);
             }}
@@ -115,6 +140,10 @@ const Control = () => {
             className={`control-diff-item diff-3 ${isHardMode ? "chosen" : ""}`}
             onClick={() => {
               setIsHardMode(true);
+              localStorage.setItem(
+                "cmg-game",
+                JSON.stringify({ ...getLocalStorage(), hardMode: true })
+              );
               dispatch({ type: SET_MODE, payload: "hard" });
               setIsModeOpen(!isModeOpen);
             }}

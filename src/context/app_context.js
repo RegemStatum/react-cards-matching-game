@@ -10,9 +10,39 @@ import { cards } from "../data";
 import reducer from "../reducers/app_reducer";
 
 const AppContext = React.createContext();
+
+const getLocalStorage = () => {
+  let obj = localStorage.getItem("cmg-game");
+  if (obj) {
+    return JSON.parse(obj);
+  } else {
+    return { theme: "dark-theme", size: "2x2", hardMode: "true" };
+  }
+};
+
+const getStorageCardsAmount = () => {
+  let cardsAmount = 4;
+  if (localStorage.getItem("cmg-game")) {
+    let obj = JSON.parse(localStorage.getItem("cmg-game"));
+    if (obj.size === "2x2") cardsAmount = 4;
+    if (obj.size === "4x2") cardsAmount = 8;
+    if (obj.size === "4x4") cardsAmount = 16;
+  }
+  return cardsAmount;
+};
+
+const getStorageHardMode = () => {
+  let hardMode = true;
+  if (localStorage.getItem("cmg-game")) {
+    let obj = JSON.parse(localStorage.getItem("cmg-game"));
+    hardMode = obj.hardMode;
+  }
+  return hardMode;
+};
+
 const initialState = {
-  cardsAmount: 4,
-  mode: "hard",
+  cardsAmount: getStorageCardsAmount(),
+  mode: getStorageHardMode() ? "hard" : "easy",
   prevClickedCardId: 0,
   allCardsGuessed: false,
   cards: [],
@@ -53,7 +83,6 @@ export const AppProvider = ({ children }) => {
     let clickedCards = [];
     const timeout = setTimeout(() => {
       clickedCards = state.cards.filter((card) => card.isClicked);
-      console.log("clickedCards : ", clickedCards);
       if (
         clickedCards.length === 2 &&
         clickedCards[0].id === clickedCards[1].id
@@ -71,6 +100,7 @@ export const AppProvider = ({ children }) => {
           payload: {
             idToClose0: clickedCards[0].id,
             idToClose1: clickedCards[1].id,
+            mode: state.mode,
           },
         });
       }
@@ -83,7 +113,6 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     let tempArr = [];
     tempArr = state.cards.filter((card) => card.isGuessed === false);
-    console.log("guessedCardsArr : ", tempArr);
     if (tempArr.length === 0 && state.prevClickedCardId !== 0) {
       dispatch({ type: ALL_CARDS_GUESSED });
     }
@@ -109,6 +138,8 @@ export const AppProvider = ({ children }) => {
         handleCardClick,
         dispatch,
         state,
+        getLocalStorage,
+        getStorageHardMode,
       }}
     >
       {children}

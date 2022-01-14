@@ -44,9 +44,6 @@ const reducer = (state, action) => {
     const clickedCard = cards.filter(
       (card) => card.arrIndex === cardArrIndex
     )[0];
-
-    // console.log(clickedCard);
-
     let newCards = cards.map((card) => {
       if (card.arrIndex === cardArrIndex) {
         return { ...card, isClicked: true };
@@ -54,8 +51,6 @@ const reducer = (state, action) => {
         return card;
       }
     });
-    // console.log(newCards);
-
     return {
       ...state,
       cards: newCards,
@@ -76,12 +71,17 @@ const reducer = (state, action) => {
     return { ...state, cards: newCards };
   }
   if (action.type === CLOSE_CARDS) {
-    const { idToClose0, idToClose1 } = action.payload;
+    const { idToClose0, idToClose1, mode } = action.payload;
     const newCards = state.cards.map((card) => {
-      if (card.id === idToClose0 || card.id === idToClose1) {
+      if (mode === "easy") {
+        if (card.id === idToClose0 || card.id === idToClose1) {
+          return { ...card, isClicked: false, isGuessed: false };
+        } else {
+          return { ...card, isClicked: false };
+        }
+      }
+      if (mode === "hard") {
         return { ...card, isClicked: false, isGuessed: false };
-      } else {
-        return { ...card, isClicked: false };
       }
     });
     return { ...state, cards: newCards };
