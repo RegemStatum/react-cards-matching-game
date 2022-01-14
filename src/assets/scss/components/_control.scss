@@ -1,0 +1,156 @@
+@use "../abstracts/" as *;
+
+.control {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 0;
+  color: getColor("bg-color");
+  gap: getMargin(300);
+
+  @include md {
+    padding-top: getPadding(900);
+  }
+
+  .control-item {
+    min-width: 5rem;
+    min-height: 3rem;
+    width: 22%;
+    background-color: getColor("color-1");
+    @include radius;
+    @include text(500);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .control-time {
+    p {
+      padding-top: getPadding(500);
+      font-weight: 600;
+      @include text(600);
+    }
+  }
+
+  .control-start {
+    background-color: getMainColor("clr-green-dark");
+    cursor: pointer;
+    @include text(500);
+  }
+
+  .control-size {
+    // background-color: getMainColor("clr-yellow-dark");
+    @include radius;
+    cursor: pointer;
+
+    .sizes {
+      display: none;
+
+      &.shown {
+        display: block;
+      }
+    }
+  }
+
+  .control-size-item {
+    background-color: getMainColor("clr-yellow-dark");
+    min-height: 3rem;
+    position: absolute;
+    transform: translateY(100%);
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    padding-top: getPadding(600);
+    @include radius;
+    border: 1px solid getColor("color-1");
+
+    &.size-1 {
+      transform: translateY(0);
+      border: none;
+    }
+
+    &.size-2 {
+      transform: translateY(100%);
+    }
+
+    &.size-3 {
+      transform: translateY(200%);
+    }
+
+    &.size-4 {
+      transform: translateY(300%);
+    }
+
+    &.chosen {
+      p {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .control-diff-item {
+    background-color: getMainColor("clr-yellow-dark");
+    min-height: 3rem;
+    position: absolute;
+    transform: translateY(100%);
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    padding-top: getPadding(600);
+    @include radius;
+    border: 1px solid getColor("color-1");
+
+    &.diff-1 {
+      transform: translateY(0);
+      border: none;
+
+      &.hard {
+        background-color: getMainColor("clr-red-dark");
+      }
+
+      &.easy {
+        background-color: getMainColor("clr-green-dark");
+      }
+    }
+
+    &.diff-2 {
+      transform: translateY(100%);
+    }
+
+    &.diff-3 {
+      transform: translateY(200%);
+    }
+
+    &.chosen {
+      p {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .control-diff {
+    background-color: getMainColor("clr-red-dark");
+    @include radius;
+    cursor: pointer;
+
+    .diff {
+      display: none;
+
+      &.shown {
+        display: block;
+      }
+    }
+  }
+
+  .control-size,
+  .control-diff {
+    position: relative;
+  }
+
+  .control-arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(-25%, 25%);
+    @include text(500);
+    z-index: 2;
+  }
+}

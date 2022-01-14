@@ -1,22 +1,4 @@
 @use "../abstracts/" as *;
 
 .home-page {
-  h1 {
-    color: getMainColor("clr-red-dark");
-  }
-  h2 {
-    color: getMainColor("clr-red-light");
-  }
-  h3 {
-    color: getMainColor("clr-yellow-dark");
-  }
-  h4 {
-    color: getMainColor("clr-yellow-light");
-  }
-  h5 {
-    color: getMainColor("clr-green-dark");
-  }
-  p {
-    color: getMainColor("clr-green-light");
-  }
 }

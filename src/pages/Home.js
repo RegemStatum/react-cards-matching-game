@@ -1,9 +1,14 @@
 import React from "react";
+import Button from "../components/Button";
+import { useAppContext } from "../context/app_context";
+import Control from "../components/Control";
+import Cards from "../components/Cards";
 
 const Home = () => {
   return (
     <main className="home-page container section-p page-min-height">
-      <h1>Main page</h1>
+      <Control />
+      <Cards />
     </main>
   );
 };
