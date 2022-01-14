@@ -29,7 +29,7 @@ const Cards = () => {
 
   if (state.isGameStarted === false) {
     return (
-      <div className="container row jus-c section-p">
+      <div className="container to-start row jus-c section-p">
         <h2>Click start button</h2>
       </div>
     );

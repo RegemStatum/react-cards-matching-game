@@ -71,14 +71,16 @@
 
 .congratulations {
   h2 {
-    line-height: 1.4;
+    @include xs {
+      @include text(800);
+    }
 
     .accent {
       display: block;
       text-align: center;
       width: 100%;
       @include xs {
-        @include text(900);
+        @include text(800);
       }
 
       @include md {
@@ -100,4 +102,8 @@
       padding-left: getPadding();
     }
   }
+}
+
+.to-start h2 {
+  text-align: center;
 }
