@@ -6,11 +6,16 @@
   padding-bottom: 0;
   display: grid;
   justify-content: center;
-
   grid-template-columns: minmax(144px, 200px) minmax(144px, 200px);
 
   @include md {
     grid-template-columns: 200px 200px 200px;
+    grid-column-gap: getMargin(400);
+    grid-row-gap: getMargin(500);
+  }
+
+  @include lg {
+    grid-template-columns: 200px 200px 200px 200px;
     grid-column-gap: getMargin(400);
     grid-row-gap: getMargin(500);
   }
@@ -24,7 +29,6 @@
     width: 100%;
     min-height: 13rem;
     background-color: transparent;
-    border: 2px solid red;
     perspective: 1000px;
     cursor: pointer;
     justify-self: center;
@@ -61,6 +65,39 @@
         left: 0;
         transform: rotateY(180deg);
       }
+    }
+  }
+}
+
+.congratulations {
+  h2 {
+    line-height: 1.4;
+
+    .accent {
+      display: block;
+      text-align: center;
+      width: 100%;
+      @include xs {
+        @include text(900);
+      }
+
+      @include md {
+        @include text(1000);
+      }
+    }
+  }
+
+  h3 {
+    line-height: 1.9;
+    text-transform: none;
+
+    @include xs {
+      padding-top: getPadding(1000);
+      @include text(800);
+    }
+
+    span {
+      padding-left: getPadding();
     }
   }
 }

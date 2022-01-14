@@ -63,8 +63,13 @@
     border: 1px solid getColor("color-1");
 
     &.size-1 {
+      display: block;
       transform: translateY(0);
       border: none;
+
+      &.hidden {
+        display: none;
+      }
     }
 
     &.size-2 {
@@ -99,8 +104,13 @@
     border: 1px solid getColor("color-1");
 
     &.diff-1 {
+      display: block;
       transform: translateY(0);
       border: none;
+
+      &.hidden {
+        display: none;
+      }
 
       &.hard {
         background-color: getMainColor("clr-red-dark");
@@ -127,7 +137,7 @@
   }
 
   .control-diff {
-    background-color: getMainColor("clr-red-dark");
+    background-color: getMainColor("clr-blue-dark");
     @include radius;
     cursor: pointer;
 
@@ -152,5 +162,9 @@
     transform: translate(-25%, 25%);
     @include text(500);
     z-index: 2;
+
+    &.hidden {
+      display: none;
+    }
   }
 }

@@ -5,12 +5,14 @@ import {
   CLOSE_CARDS,
   CARDS_GUESSED,
   ALL_CARDS_GUESSED,
+  SET_TIMER,
+  RESET_TIMER,
 } from "../actions";
-import { cards } from "../data";
 import reducer from "../reducers/app_reducer";
 
 const AppContext = React.createContext();
 
+// local storage info
 const getLocalStorage = () => {
   let obj = localStorage.getItem("cmg-game");
   if (obj) {
@@ -40,11 +42,15 @@ const getStorageHardMode = () => {
   return hardMode;
 };
 
+// initial reducer state
 const initialState = {
   cardsAmount: getStorageCardsAmount(),
   mode: getStorageHardMode() ? "hard" : "easy",
   prevClickedCardId: 0,
   allCardsGuessed: false,
+  isGameStarted: false,
+  time: 0,
+  timeToShow: "00:00:00",
   cards: [],
 };
 
@@ -75,26 +81,51 @@ export const AppProvider = ({ children }) => {
     dispatch({ type: SET_CARDS, payload: newIdArr });
   };
 
+  // timer
+  useEffect(() => {
+    let interval;
+    let time = state.time;
+
+    function timeCount() {
+      time += 1;
+      dispatch({ type: SET_TIMER, payload: time });
+    }
+
+    if (state.isGameStarted) {
+      interval = setInterval(timeCount, 1000);
+    }
+    if (state.isGameStarted === false) {
+      dispatch({ type: RESET_TIMER });
+    }
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [state.isGameStarted]);
+
+  // generate cards
   useEffect(() => {
     generateCards();
-  }, [state.cardsAmount]);
+  }, [state.cardsAmount, state.isGameStarted]);
 
+  // check for clicked cards
   useEffect(() => {
     let clickedCards = [];
+    clickedCards = state.cards.filter((card) => card.isClicked);
+
     const timeout = setTimeout(() => {
-      clickedCards = state.cards.filter((card) => card.isClicked);
+      // player guessed 2 cards
       if (
         clickedCards.length === 2 &&
         clickedCards[0].id === clickedCards[1].id
       ) {
-        console.log("cards_guessed");
         dispatch({ type: CARDS_GUESSED, payload: clickedCards[0].id });
       }
+      // player non guessed 2 cards
       if (
         clickedCards.length === 2 &&
         clickedCards[0].id !== clickedCards[1].id
       ) {
-        console.log("cards_closed");
         dispatch({
           type: CLOSE_CARDS,
           payload: {
@@ -104,12 +135,13 @@ export const AppProvider = ({ children }) => {
           },
         });
       }
-    }, 1000);
+    }, 500);
     return () => {
       clearTimeout(timeout);
     };
   }, [state.cards]);
 
+  // game finished, all cards guessed
   useEffect(() => {
     let tempArr = [];
     tempArr = state.cards.filter((card) => card.isGuessed === false);
@@ -118,6 +150,7 @@ export const AppProvider = ({ children }) => {
     }
   }, [state.cards]);
 
+  // on card click
   const handleCardClick = (id) => {
     dispatch({
       type: CLICK_ON_CARD,

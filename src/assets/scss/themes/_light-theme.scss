@@ -77,4 +77,10 @@
       }
     }
   }
+
+  .control .control-time {
+    p {
+      color: getMainColor();
+    }
+  }
 }

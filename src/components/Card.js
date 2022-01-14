@@ -27,7 +27,6 @@ const Card = ({
           <img src={img} alt={name} />
         </div>
       </div>
-      card {id}
     </div>
   );
 };

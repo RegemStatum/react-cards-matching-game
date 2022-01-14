@@ -1,7 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { useAppContext } from "../context/app_context";
-import { SET_CARDS_AMOUNT, SET_MODE } from "../actions";
+import { SET_CARDS_AMOUNT, SET_MODE, START_GAME } from "../actions";
 
 const getStorageSize = () => {
   let size = "2x2";
@@ -13,7 +13,8 @@ const getStorageSize = () => {
 };
 
 const Control = () => {
-  const { dispatch, getLocalStorage, getStorageHardMode } = useAppContext();
+  const { dispatch, getLocalStorage, getStorageHardMode, state } =
+    useAppContext();
   const [isSizeOpen, setIsSizeOpen] = useState(false);
   const [isModeOpen, setIsModeOpen] = useState(false);
   const [isHardMode, setIsHardMode] = useState(getStorageHardMode());
@@ -63,17 +64,31 @@ const Control = () => {
   return (
     <div className="control row w-100 jus-c al-c">
       <div className="control-item control-time">
-        <p>00:00:00</p>
+        <p>{state.timeToShow}</p>
       </div>
-      <button className="control-item control-start sb">Start</button>
+      <button
+        className="control-item control-start sb"
+        onClick={() => {
+          dispatch({ type: START_GAME });
+        }}
+        disabled={state.isGameStarted}
+      >
+        Start
+      </button>
       <div
         className="control-item control-size"
         onClick={() => {
           setIsSizeOpen(!isSizeOpen);
         }}
       >
-        <IoIosArrowDown className="control-arrow" />
-        <div className="control-size-item  size-1 chosen">
+        <IoIosArrowDown
+          className={`control-arrow ${state.isGameStarted ? "hidden" : ""}`}
+        />
+        <div
+          className={`control-size-item size-1 chosen ${
+            state.isGameStarted ? "hidden" : ""
+          }`}
+        >
           <p>{currentSize}</p>
         </div>
         <div className={`sizes ${isSizeOpen ? "shown" : ""}`}>
@@ -108,11 +123,13 @@ const Control = () => {
       </div>
 
       <div className="control-item control-diff">
-        <IoIosArrowDown className="control-arrow" />
+        <IoIosArrowDown
+          className={`control-arrow ${state.isGameStarted ? "hidden" : ""}`}
+        />
         <div
           className={`control-diff-item  diff-1 chosen ${
             isHardMode ? "hard" : "easy"
-          }`}
+          } ${state.isGameStarted ? "hidden" : ""}`}
           onClick={() => {
             setIsModeOpen(!isModeOpen);
           }}
