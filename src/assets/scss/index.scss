@@ -26,14 +26,22 @@ body {
     }
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-weight: 900;
+    text-transform: capitalize;
+  }
+
+  // xs fontsizes
   p {
-    font-size: getFontSize(400);
-    font-weight: 300;
-    line-height: 24px;
+    @include text(300);
   }
 
   a {
-    font-size: getFontSize(400);
+    @include text(300);
     color: getColor();
     text-decoration: none;
 
@@ -44,37 +52,58 @@ body {
   }
 
   h1 {
-    @include text(1100);
+    @include text(1000);
     color: getColor("heading-1-color");
-    font-weight: 900;
-    text-transform: capitalize;
   }
 
   h2 {
-    @include text(1000);
+    @include text(800);
     color: getColor("heading-2-color");
-    font-weight: 900;
-    text-transform: capitalize;
   }
 
   h3 {
-    @include text(800);
+    @include text(700);
     color: getColor("heading-3-color");
-    font-weight: 900;
-    text-transform: capitalize;
   }
 
   h4 {
-    @include text(700);
+    @include text(600);
     color: getColor("heading-4-color");
-    font-weight: 900;
-    text-transform: capitalize;
   }
 
   h5 {
-    @include text(600);
+    @include text(500);
     color: getColor("heading-5-color");
-    font-weight: 900;
-    text-transform: capitalize;
+  }
+
+  // md fontsizes
+  @include md {
+    p {
+      @include text(400);
+    }
+
+    a {
+      @include text(400);
+    }
+
+    h1 {
+      @include text(1100);
+    }
+
+    h2 {
+      @include text(1000);
+    }
+
+    h3 {
+      @include text(800);
+    }
+
+    h4 {
+      @include text(700);
+    }
+
+    h5 {
+      @include text(600);
+    }
   }
 }
