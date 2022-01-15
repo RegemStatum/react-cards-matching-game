@@ -58,26 +58,23 @@ export const AppProvider = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  // generate random sequence of cards
   const generateCards = () => {
-    const firstTempArr = [];
-    const secondTempArr = [];
-    let randIndex = 0;
-    const size = state.cardsAmount / 2;
-    for (
-      let i = 0;
-      firstTempArr.length < size || secondTempArr.length < size;
-      i++
-    ) {
-      randIndex = Math.floor(Math.random() * size + 1);
-      if (!firstTempArr.includes(randIndex)) {
-        firstTempArr.push(randIndex);
-      }
-      randIndex = Math.floor(Math.random() * size + 1);
-      if (!secondTempArr.includes(randIndex)) {
-        secondTempArr.push(randIndex);
+    const newIdArr = [];
+    let randValue = -1;
+    let elementsWithSameValue = [];
+
+    function generateRandomValue() {
+      return Math.floor(Math.random() * (state.cardsAmount / 2) + 1);
+    }
+
+    while (newIdArr.length < state.cardsAmount) {
+      randValue = generateRandomValue();
+      elementsWithSameValue = newIdArr.filter((el) => el === randValue);
+      if (!(elementsWithSameValue.length === 2)) {
+        newIdArr.push(randValue);
       }
     }
-    const newIdArr = [...firstTempArr, ...secondTempArr];
     dispatch({ type: SET_CARDS, payload: newIdArr });
   };
 

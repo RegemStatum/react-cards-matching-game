@@ -91,6 +91,7 @@ const reducer = (state, action) => {
       if (mode === "hard") {
         return { ...card, isClicked: false, isGuessed: false };
       }
+      return { ...card };
     });
     return { ...state, cards: newCards };
   }
