@@ -2,7 +2,6 @@
 
 .login-page {
   text-align: center;
-  padding-top: getPadding(1600);
 
   .login-img {
     width: 110px;
@@ -15,7 +14,11 @@
   }
 
   h2 {
-    padding-bottom: getPadding(1500);
+    padding-bottom: getPadding(1200);
+
+    @include md {
+      padding-bottom: getPadding(1500);
+    }
   }
 
   h4 {
