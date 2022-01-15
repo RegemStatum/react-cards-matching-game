@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className="header container">
       <div className="row al-c">
-        <Link to="/" className="logo row">
+        <Link to="/" className="logo row al-c">
           <GiCardExchange />
           <h1>CMG</h1>
         </Link>

@@ -42,7 +42,7 @@ body {
 
   a {
     @include text(300);
-    color: getColor();
+    color: getColor("text-color");
     text-decoration: none;
 
     // &:hover {

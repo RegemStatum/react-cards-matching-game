@@ -6,13 +6,13 @@
   padding: getPadding(500) getPadding(800);
   border: 2px solid getColor("color-1");
   background-color: transparent;
-  font-size: getFontSize(300);
   font-weight: 600;
   text-transform: uppercase;
   color: getColor("color-1");
   cursor: pointer;
   @include transition(box-shadow);
   @include radius;
+  @include text(300);
 
   &:hover {
     @include boxShadow;

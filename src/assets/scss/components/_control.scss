@@ -63,6 +63,10 @@
     @include radius;
     border: 1px solid getColor("color-1");
 
+    p {
+      @include text(400);
+    }
+
     &.size-1 {
       display: block;
       transform: translateY(0);
@@ -103,6 +107,10 @@
     padding-top: getPadding(600);
     @include radius;
     border: 1px solid getColor("color-1");
+
+    p {
+      @include text(400);
+    }
 
     &.diff-1 {
       display: block;
