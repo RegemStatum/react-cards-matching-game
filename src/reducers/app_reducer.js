@@ -26,9 +26,25 @@ const reducer = (state, action) => {
     };
   }
   if (action.type === SET_CARDS) {
-    const newIdArr = action.payload;
-    let newCardsArr = [];
+    // generate random id arr
+    const newIdArr = [];
+    let randValue = -1;
+    let elementsWithSameValue = [];
 
+    function generateRandomValue() {
+      return Math.floor(Math.random() * (state.cardsAmount / 2) + 1);
+    }
+
+    while (newIdArr.length < state.cardsAmount) {
+      randValue = generateRandomValue();
+      elementsWithSameValue = newIdArr.filter((el) => el === randValue);
+      if (!(elementsWithSameValue.length === 2)) {
+        newIdArr.push(randValue);
+      }
+    }
+
+    // create cards
+    let newCardsArr = [];
     newIdArr.forEach((index, arrIndex) => {
       cards.forEach((card) => {
         if (index === card.id) {

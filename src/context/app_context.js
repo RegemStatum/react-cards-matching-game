@@ -58,26 +58,6 @@ export const AppProvider = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // generate random sequence of cards
-  const generateCards = () => {
-    const newIdArr = [];
-    let randValue = -1;
-    let elementsWithSameValue = [];
-
-    function generateRandomValue() {
-      return Math.floor(Math.random() * (state.cardsAmount / 2) + 1);
-    }
-
-    while (newIdArr.length < state.cardsAmount) {
-      randValue = generateRandomValue();
-      elementsWithSameValue = newIdArr.filter((el) => el === randValue);
-      if (!(elementsWithSameValue.length === 2)) {
-        newIdArr.push(randValue);
-      }
-    }
-    dispatch({ type: SET_CARDS, payload: newIdArr });
-  };
-
   // timer
   useEffect(() => {
     let interval;
@@ -102,7 +82,7 @@ export const AppProvider = ({ children }) => {
 
   // generate cards
   useEffect(() => {
-    generateCards();
+    dispatch({ type: SET_CARDS });
   }, [state.cardsAmount, state.isGameStarted]);
 
   // check for clicked cards
