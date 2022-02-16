@@ -2,14 +2,6 @@ import React, { useState, useEffect } from "react";
 import { BsSun, BsMoon } from "react-icons/bs";
 import { useAppContext } from "../context/app_context";
 
-// const getStorageTheme = () => {
-//   let theme = "dark-theme";
-//   if (localStorage.getItem("theme")) {
-//     theme = localStorage.getItem("theme");
-//   }
-//   return theme;
-// };
-
 const getStorageTheme = () => {
   let theme = "dark-theme";
   let cmgGame = localStorage.getItem("cmg-game");

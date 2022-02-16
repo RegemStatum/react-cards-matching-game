@@ -80,7 +80,7 @@
 
   .control .control-time {
     p {
-      color: getMainColor();
+      color: getMainColor("clr-white");
     }
   }
 }
